@@ -18,6 +18,7 @@ export default function SignIn() {
       redirect: false,
     });
     if (result?.ok) {
+      console.log(result,"inside ok>>>>>>>>>>>");
       setLoading(false);
       router.push("/blog");
     } else {
