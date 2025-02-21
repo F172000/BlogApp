@@ -4,7 +4,7 @@ export const fetchPosts = createAsyncThunk(
   "posts/fetchPosts",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch(`${process.env.NEXTAUTH_URL}/api`);
+      const response = await fetch(`${process.env.NEXTAUTH_URL}/post.json`);
       if (!response.ok) {
         throw new Error("Failed to fetch posts");
       }
