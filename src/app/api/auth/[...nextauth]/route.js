@@ -12,7 +12,7 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const res = await fetch(`https://blog-ng2724gmq-f172000s-projects.vercel.app/auth.json`);
+        const res = await fetch(`${process.env.NEXTAUTH_URL}/auth.json`);
         if (!res.ok) {
           throw new Error("Failed to fetch user data");
         }

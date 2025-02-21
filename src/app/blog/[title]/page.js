@@ -11,7 +11,7 @@ export default function Page() {
     if (!title) return;
     async function getPost() {
       try {
-        const res = await fetch(`https://blog-app-phi-sand.vercel.app/api/${title}`);
+        const res = await fetch(`${process.env.NEXTAUTH_URL}/api/${title}`);
         if (!res.ok) throw new Error(`HTTP error ! status: ${res.status}`);
         const data = await res.json();
         setPost(data);

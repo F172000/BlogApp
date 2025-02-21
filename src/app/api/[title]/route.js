@@ -7,7 +7,13 @@ export async function GET(request, context) {
   try {
     const { params } = context;
     const { title } = params;
-    const post = getPosts().find((post) => post?.title === title);
+    const res = await fetch(`${process.env.NEXTAUTH_URL}/auth.json`);
+    if (!res.ok) {
+      throw new Error("Failed to fetch posts data");
+    }
+
+    const posts = await res.json();
+    const post = posts.find((post) => post?.title === title);
     if (!post)
       return NextResponse.json({ message: "Post not found" }, { status: 404 });
     return NextResponse.json(post);
