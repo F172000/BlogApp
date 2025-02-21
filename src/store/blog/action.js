@@ -21,7 +21,8 @@ export const fetchPosts = createAsyncThunk(
           "content": "This is my Third post"
         }
       ]
-     return posts;
+      const data = await posts.json();
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }
