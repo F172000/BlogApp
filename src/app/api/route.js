@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 export async function GET() {
   try {
-    const res = await fetch(`${process.env.NEXTAUTH_URL}/post.json`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/post.json`);
     if (!res.ok) {
       throw new Error("Failed to fetch user data");
     }

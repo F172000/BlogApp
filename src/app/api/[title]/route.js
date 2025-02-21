@@ -7,7 +7,7 @@ export async function GET(request, context) {
   try {
     const { params } = context;
     const { title } = params;
-    const res = await fetch(`${process.env.NEXTAUTH_URL}/auth.json`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/auth.json`);
     if (!res.ok) {
       throw new Error("Failed to fetch posts data");
     }
