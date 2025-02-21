@@ -4,7 +4,7 @@ export const fetchPosts = createAsyncThunk(
   "posts/fetchPosts",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch("/api");
+      const response = await fetch("https://blog-app-phi-sand.vercel.app/api");
       if (!response.ok) {
         throw new Error("Failed to fetch posts");
       }

@@ -44,8 +44,8 @@ export default function SignIn() {
         <input
         id="password"
           className="block w-full rounded-md border-1 border-gray-300 bg-gray-200 px-3 py-1.5 text-base text-gray-900 outline-1 outline-gray-300 "
-          type="password"
-          placeholder="text"
+          type="text"
+          placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required

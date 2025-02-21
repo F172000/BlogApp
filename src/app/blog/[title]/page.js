@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-export default function page() {
+export default function Page() {
   const { title } = useParams();
   console.log(title, "slug>>>>>>>");
   const [post, setPost] = useState(null);
@@ -11,7 +11,7 @@ export default function page() {
     if (!title) return;
     async function getPost() {
       try {
-        const res = await fetch(`/api/${title}`);
+        const res = await fetch(`https://blog-app-phi-sand.vercel.app/api/${title}`);
         if (!res.ok) throw new Error(`HTTP error ! status: ${res.status}`);
         const data = await res.json();
         setPost(data);

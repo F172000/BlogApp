@@ -27,7 +27,7 @@ export const authOptions = {
     })
   ],
   pages: {
-    signIn: "/auth"
+    signIn: "https://blog-app-phi-sand.vercel.app/auth"
   }
 };
 
