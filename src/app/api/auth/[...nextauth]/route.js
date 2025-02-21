@@ -9,26 +9,31 @@ export const authOptions = {
       name: "Credentials",
       credentials: {
         email: { label: "Email", type: "text" },
-        password: { label: "Password", type: "password" }
+        password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const filePath = path.join(process.cwd(), "public", "auth.json");
-        const users = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+        const res = await fetch(`https://blog-ng2724gmq-f172000s-projects.vercel.app/auth.json`);
+        if (!res.ok) {
+          throw new Error("Failed to fetch user data");
+        }
+
+        const users = await res.json();
 
         const user = users.find(
-          u => u.email === credentials.email && u.password === credentials.password
+          (u) =>
+            u.email === credentials.email && u.password === credentials.password
         );
 
         if (user) {
           return { email: user.email };
         }
         return null;
-      }
-    })
+      },
+    }),
   ],
   pages: {
-    signIn: "https://blog-app-phi-sand.vercel.app/auth"
-  }
+    signIn: "/auth",
+  },
 };
 
 const handler = NextAuth(authOptions);
